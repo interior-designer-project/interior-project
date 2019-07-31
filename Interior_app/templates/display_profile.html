@@ -1,0 +1,24 @@
+
+{% extends 'base.html' %}
+<h3>
+
+{% block title %} Viewing {{ details.user.username }}'s profile {% endblock %}
+
+{% block body %}
+<div class="container">
+	<img src="{{ details.profile_picture.url }}" width="240">
+
+	<br>Name : {{ details.Name }}</br>
+	<br>Contact Number : {{ details.contact_no }}</br>
+	<br>Years of Experience : {{ details.Years_of_experience }}</br>
+	<br>Total Number of Completed Projects : {{ details.Number_of_finished_projects }}</br>
+	<br>Locality : {{ details.Locality }}</br>
+	<br>Expected Salary : {{ details.Expected_salary }}</br>
+	<br>Approximate Overall Cost Quote : {{ details.Overall_cost }}</br>
+	
+</div>
+
+{% endblock %}
+
+
+</h3>

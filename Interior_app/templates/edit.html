@@ -1,0 +1,16 @@
+{% block title %} Edit Profile {% endblock %}
+<h2> Edit Your Profile</h2>
+{% block body %}
+	{% if user.is_authenticated %}
+	<form method="POST" class="post-form">
+	<div class="post">
+		
+		{% csrf_token %}
+        {{ form.as_p }}
+        <a class="btn btn-default" href="{% url 'Edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+    </div>
+    	</form>
+    {% endif %}
+		
+    }
+{% endblock %}
