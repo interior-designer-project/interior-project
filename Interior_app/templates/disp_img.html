@@ -1,0 +1,8 @@
+{% block body %}
+<h1>images here</h1>
+
+	{% for collection in images %}
+		<img src="media/{{ collection.image }}" width="120" height="90" >
+	{% endfor %}
+	
+{% endblock %}

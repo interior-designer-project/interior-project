@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+<h3>
+
+{% block title%} Dashboard of {{details.user.username }} {% endblock %}
+
+{% block body %}
+	<div class="container">
+	<img src="{{ details.profile_picture.url }}" width="240"> {{details.user.username}}  <a href="{% url 'edit_profile' %}">Edit username</a>
+	<hr><br>Name : {{ details.Name }}</br></hr>
+	<hr><a href="{% url 'edit_contact' %}">Edit Contact info</a>  |  <br>Contact Number : {{ details.contact_no }}</br></hr>
+	<hr><a href="{% url 'edit_years' %}">Edit Years of Experience</a><br>Years of Experience : {{ details.Years_of_experience }} years</br></hr>
+	<hr><a href="{% url 'edit_finsite' %}">Edit Number of Completed Projects</a><br>Total Number of Completed Projects : {{ details.Number_of_finished_projects }}</br></hr>
+	<hr><a href="{% url 'edit_locality' %}">Edit Locality</a><br>Locality : {{ details.Locality }}</br></hr>
+	<hr><a href="{% url 'edit_salary' %}">Edit Expected Salary</a><br>Expected Salary : {{ details.Expected_salary }}</br></hr>
+	<hr><a href="{% url 'edit_cost' %}">Edit Overall Cost</a><br>Approximate Overall Cost Quote : {{ details.Overall_cost }}</br></hr>
+	
+	
+	<hr>
+	<h5 align="right">
+	<a href="{% url 'logout' %}">Logout</a>
+	
+	</hr>
+	</h5>
+	
+
+</h3>
+
+
+
+
+{% endblock %}
+
+
+
+</h3>

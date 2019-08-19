@@ -27,17 +27,70 @@ class SignupForm(UserCreationForm):
 
 
 
-# class EditProfileForm(forms.ModelForm):
-# 	username = forms.CharField(label='Username', max_length=100)
-# 	phone_no = forms.IntegerField(label='Phone No')
-# 	expected_salary = forms.IntegerField(label = 'Expected Salary/Pay')
-# 	overall_cost = forms.IntegerField(label = 'Estimated Overall Cost')
-# 	years = forms.IntegerField(label = 'Years of Experience')
-# 	Number_sites = forms.IntegerField(label = 'Number of Finished Projects')
-# 	locality = forms.CharField(label = 'Locality', max_length = 150, required = False)
 
 
 
+
+
+
+class EditProfileForm(forms.ModelForm):
+	username = forms.CharField(max_length = 100, label = 'username')
+	class Meta:
+		model = User
+		fields = ['username']
+
+
+
+class EditProfileForm_contact(forms.ModelForm):
+	phone_no = forms.IntegerField(label='Phone No')
+	class Meta:
+		model = User
+		fields = ['phone_no']
+
+
+
+class EditProfileForm_years(forms.ModelForm):
+	years = forms.IntegerField(label = 'Years of Experience')
+	class Meta:
+		model = User
+		fields = ['years']
+
+
+
+
+class EditProfileForm_locality(forms.ModelForm):
+	locality = forms.CharField(label = 'Locality', max_length = 150, required = False)
+	class Meta:
+		model = User
+		fields = ['locality']
+
+
+
+class EditProfileForm_cost(forms.ModelForm):
+	overall_cost = forms.CharField(label = 'Estimated Overall Cost')
+	class Meta:
+		model = User
+		fields = ['overall_cost']
+
+
+
+
+
+class EditProfileForm_salary(forms.ModelForm):
+	expected_salary = forms.CharField(label = 'Expected Salary/Pay')
+	class Meta:
+		model = User
+		fields = ['expected_salary']
+
+
+
+
+
+class EditProfileForm_finsite(forms.ModelForm):
+	Number_sites = forms.IntegerField(label = 'Number of Finished Projects')
+	class Meta:
+		model = User
+		fields = ['Number_sites']
 
 
 
@@ -49,7 +102,3 @@ class ImageForm(forms.ModelForm):
 
 
 
-
-
-class Search_Form(forms.Form):
-	search = forms.CharField(label = "Search", max_length = 500)

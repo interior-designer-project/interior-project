@@ -23,17 +23,18 @@ class Profile(models.Model):
 
 	def __str__(self):
 		return self.user.username
+
 def get_image_filename(instance, filename):
-    title = instance.post.title
-    slug = slugify(title)
-    return "post_images/%s-%s" % (slug, filename)  
+	name = instance.post.Name
+	slug = slugify(name)
+	return "post_images/%s-%s" % (slug, filename)  
 
 
 class Images(models.Model):
-    post = models.ForeignKey(Profile, default=None, on_delete = models.CASCADE)
-    image = models.ImageField(upload_to = get_image_filename,
-                              verbose_name='Image')
+	post = models.ForeignKey(Profile, default=None, on_delete = models.CASCADE)
+	image = models.ImageField(upload_to = get_image_filename, verbose_name='Image')
+
+	def __str__(self):
+		return self.post.user.username + ' - ' + str(self.image)
 
 
-
-# https://us04web.zoom.us/j/571679912

@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+
+{% block title %} Edit Profile {% endblock %}
+
+{% block body %}
+<h3> Edit Your Contact info</h3>
+	{% if user.is_authenticated %}
+	<form method="POST" action="{% url 'edit_contact' %}" class="" />
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Save</button>
+</form>
+    {% endif %}
+		
+ 
+{% endblock %}
