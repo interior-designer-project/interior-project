@@ -1,0 +1,135 @@
+{% extends 'woodrox/base_woodrox.html'%}
+<!doctype html>
+{% load static %}
+
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <!-- <link rel="icon" href="{% static 'Interior_app/img/favicon.png' %}" type="image/png"> -->
+        <title>Woodrox Furniture</title>
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="{% static 'Interior_app/css/bootstrap.css' %}">
+        <link rel="stylesheet" href="{% static 'Interior_app/css/vendors/linericon/style.css' %}">
+        <link rel="stylesheet" href="{% static 'Interior_app/css/font-awesome.min.css' %}">
+        <link rel="stylesheet" href="{% static 'Interior_app/css/vendors/owl-carousel/owl.carousel.min.css' %}">
+        <link rel="stylesheet" href="{% static 'Interior_app/css/vendors/lightbox/simpleLightbox.css' %}">
+        <link rel="stylesheet" href="{% static 'Interior_app/css/vendors/nice-select/css/nice-select.css' %}">
+        <link rel="stylesheet" href="{% static 'Interior_app/css/vendors/animate-css/animate.css' %}">
+        <!-- main css -->
+        <link rel="stylesheet" href="{% static 'Interior_app/css/style.css' %}">
+        <link rel="stylesheet" href="{% static 'Interior_app/css/responsive.css' %}">
+    </head>
+    <body>
+        {% block body %}
+        
+        <!--================Header Menu Area =================-->
+        
+        <!--================Header Menu Area =================-->
+        
+        <!--================Home Banner Area =================-->
+        <section class="banner_area">
+            <div class="banner_inner d-flex align-items-center">
+            	<div class="overlay bg-parallax" data-stellar-ratio="0.9" data-stellar-vertical-offset="0" data-background=""></div>
+				<div class="container">
+					<div class="banner_content text-center">
+						<h2>Project Details</h2>
+						<div class="page_link">
+							<a href="index.html">Home</a>
+							<a href="projects.html">Projects</a>
+							<a href="project-details.html">Project Details</a>
+						</div>
+					</div>
+				</div>
+            </div>
+        </section>
+        <!--================End Home Banner Area =================-->
+        
+        <!--================Portfolio Details Area =================-->
+        <section class="portfolio_details_area p_120">
+        	<div class="container">
+        		<div class="portfolio_details_inner">
+					<div class="row">
+						<div class="col-md-6">
+							<div class="left_img">
+								<img src="{{ details.profile_img.url }}" width="450" height="450">
+							</div>
+                                    {% if video %}
+                                            <br><br>
+                                    <video width='400' controls>
+                                    <source src='{{ MEDIA_URL }}{{ video.videofile }}' type='video/mp4'>
+                                    Your browser does not support the video tag.
+                                    </video>
+                                    <br><br>
+
+                                    {% else %}
+                                    <p>No video available as of now</p>
+
+                                    {% endif %}
+						</div>
+						<div class="col-md-6">
+							<div class="portfolio_right_text">
+								<h4>Name : {{ details.name }}</h4>
+                                <h4>Company Name : {{ details.company_name }}</h4>
+								<br>Contact Number : {{ details.contact_no }}</br>
+                                <br>Years of Experience : {{ details.years_exp }}</br>
+                                <!-- <br>Total Number of Completed Projects : {{ details.Number_of_finished_projects }}</br> -->
+                                <br>Locality : {{ details.address }}</br>
+                                <br>Minimum Budget: {{ details.lower_budget }}</br>
+                                <br>Maximum Budget: {{ details.higher_budget }}</br>
+                                <!-- <br>Approximate Overall Cost Quote : {{ details.Overall_cost }}</br> -->
+                                <br>Design Expertise : {{ details.design_expertise }}</br>
+                                <br>Design Area : {{ details.design_area }}</br>
+                                <br>Description of {{details.name}} : {{ details.description }}</br>
+
+
+								<ul class="list">
+									<li><span>Rating</span>: <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></li>
+									<li><span>Client</span>:  colorlib</li>
+									<li><span>Website</span>:  colorlib.com</li>
+									<li><span>Completed</span>:  17 Aug 2018</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+       				<hr><br>
+
+                        <h5>Images of {{ details.name }}'s work</h5>
+                        {% for collection in images %}
+                            <img src="{{ collection.image.url }}" width="200" height="200" >
+                        {% endfor %}
+                        
+
+                        </hr></br>
+                        
+        		</div>
+        	</div>
+        </section>
+        <!--================End Portfolio Details Area =================-->
+        
+        <!--================Footer Area =================-->
+        
+        <!--================End Footer Area =================-->
+        
+        
+        
+        
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="{% static 'Interior_app/js/jquery-3.2.1.min.js' %}"></script>
+        <script src="{% static 'Interior_app/js/bootstrap.min.js' %}"></script>
+        <script src="{% static 'Interior_app/js/stellar.js' %}"></script>
+        <script src="{% static 'Interior_app/css/vendors/lightbox/simpleLightbox.min.js' %}"></script>
+        <script src="{% static 'Interior_app/css/vendors/nice-select/js/jquery.nice-select.min.js' %}"></script>
+        <script src="{% static 'Interior_app/css/vendors/isotope/imagesloaded.pkgd.min.js' %}"></script>
+        <script src="{% static 'Interior_app/css/vendors/isotope/isotope-min.js' %}"></script>
+        <script src="{% static 'Interior_app/css/vendors/owl-carousel/owl.carousel.min.js' %}"></script>
+        <script src="{% static 'Interior_app/js/jquery.ajaxchimp.min.js' %}"></script>
+        <script src="{% static 'Interior_app/js/mail-script.js' %}"></script>
+        <script src="{% static 'Interior_app/css/vendors/counter-up/jquery.waypoints.min.js' %}"></script>
+        <script src="{% static 'Interior_app/css/vendors/counter-up/jquery.counterup.min.js' %}"></script>
+        <script src="{% static 'Interior_app/js/theme.js' %}"></script>
+        {% endblock %}
+    </body>
+</html>

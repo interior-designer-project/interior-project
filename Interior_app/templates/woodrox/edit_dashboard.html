@@ -1,0 +1,198 @@
+{% extends 'woodrox/base_woodrox.html'%}
+<!doctype html>
+{% load static %}
+
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <!-- <link rel="icon" href="{% static 'Interior_app/img/favicon.png' %}" type="image/png"> -->
+        <title>Woodrox Furniture</title>
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="{% static 'Interior_app/css/bootstrap.css' %}">
+        <link rel="stylesheet" href="{% static 'Interior_app/css/vendors/linericon/style.css' %}">
+        <link rel="stylesheet" href="{% static 'Interior_app/css/font-awesome.min.css' %}">
+        <link rel="stylesheet" href="{% static 'Interior_app/css/vendors/owl-carousel/owl.carousel.min.css' %}">
+        <link rel="stylesheet" href="{% static 'Interior_app/css/vendors/lightbox/simpleLightbox.css' %}">
+        <link rel="stylesheet" href="{% static 'Interior_app/css/vendors/nice-select/css/nice-select.css' %}">
+        <link rel="stylesheet" href="{% static 'Interior_app/css/vendors/animate-css/animate.css' %}">
+        <!-- main css -->
+        <link rel="stylesheet" href="{% static 'Interior_app/css/style.css' %}">
+        <link rel="stylesheet" href="{% static 'Interior_app/css/responsive.css' %}">
+    </head>
+    <body>
+        {% block body %}
+        
+        
+       <h2>THIS IS FOR EDITING</h2>
+        <!--================Home Banner Area =================-->
+        <section class="banner_area">
+            <div class="banner_inner d-flex align-items-center">
+            	<div class="overlay bg-parallax" data-stellar-ratio="0.9" data-stellar-vertical-offset="0" data-background=""></div>
+				<div class="container">
+					<div class="banner_content text-center">
+						<h2>Project Details</h2>
+						<div class="page_link">
+							<a href="{% url 'list' %}">Home</a>
+							<a href="{% url 'dashboard' %}">My dashboard</a>
+							<a href="#">Edit Dashboard</a>
+						</div>
+					</div>
+				</div>
+            </div>
+        </section>
+        <!--================End Home Banner Area =================-->
+        
+        <!--================Portfolio Details Area =================-->
+        <section class="portfolio_details_area p_120">
+        	<div class="container">
+        		<div class="portfolio_details_inner">
+					<div class="row">
+						<div class="col-md-6">
+							<div class="left_img">
+								<img src="{{ details.profile_img.url }}" width="450" height="450">
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="portfolio_right_text">
+                            	
+                               <!--  <hr><strong><br>Name : {{ details.Name }}</br></strong></hr>
+                                <hr><br>Contact Number : {{ details.contact_no }}</br></hr>
+                                <hr><br>Years of Experience : {{ details.Years_of_experience }} years</br></hr>
+                                <hr><br>Total Number of Completed Projects : {{ details.Number_of_finished_projects }}</br></hr>
+                                <hr><br>Locality : {{ details.Locality }}</br></hr>
+                                <hr><br>Expected Salary : {{ details.Expected_salary }}</br></hr>
+                                <hr><br>Design Expertise : {{ details.Odesign_expertise }}</br></hr>
+                                <hr><br>
+ -->                                
+                                <form method="POST" action="{% url 'edit_interior' %}">
+                                    {% csrf_token %}
+                                <h4>Name : {{ details.name }}</h4>
+                                <h4>Company Name : <input id="company_name" class="u-full-width" type="text" name="company_name" value="{{details.company_name}}" readonly>
+                                    <i class='fas fa-edit' onclick= "edit_function('company_name')">
+                                </i></h4>
+                                
+                                <!-- <input class="u-full-width" type="text" name="title" value="{{details.company_name}}"/> -->
+                                <br>Contact Number : <input id="contact_no" class="u-full-width" type="text" name="contact_no" value="{{ details.contact_no }}" readonly>
+                                    <i class='fas fa-edit' onclick= "edit_function('contact_no')">
+                                </i></h4></br>
+                                <br>Years of Experience : <input id="years_exp" class="u-full-width" type="text" name="years_exp" value="{{ details.years_exp }}" readonly>
+                                    <i class='fas fa-edit' onclick= "edit_function('years_exp')">
+                                </i></h4></br>
+                                <!-- <br>Total Number of Completed Projects : {{ details.Number_of_finished_projects }}</br> -->
+                                <br>Locality : <input id="address" class="u-full-width" type="text" name="address" value="{{ details.address }}" readonly>
+                                    <i class='fas fa-edit' onclick= "edit_function('address')">
+                                </i></h4></br>
+                                <br>Minimum Budget: <input id="lower_budget" class="u-full-width" type="text" name="lower_budget" value="{{ details.lower_budget }}" readonly>
+                                    <i class='fas fa-edit' onclick= "edit_function('lower_budget')">
+                                </i></h4></br>
+                                <br>Maximum Budget: <input id="higher_budget" class="u-full-width" type="text" name="higher_budget" value="{{ details.higher_budget }}" readonly>
+                                    <i class='fas fa-edit' onclick= "edit_function('higher_budget')">
+                                </i></h4></br>
+                                <br>Email : <input id="email" class="u-full-width" type="text" name="email" value="{{ details.email }}" readonly>
+                                    <i class='fas fa-edit' onclick= "edit_function('email')">
+                                </i></h4></br>
+                                <br>Company GST Numbers: <input id="company_gST" class="u-full-width" type="text" name="company_gST" value="{{ details.company_gST }}" readonly>
+                                    <i class='fas fa-edit' onclick= "edit_function('company_gST')">
+                                </i></h4></br>
+                                <br>Design Expertise : <input id="design_expertise" class="u-full-width" type="text" name="design_expertise" value="{{ details.design_expertise }}" readonly>
+                                    <i class='fas fa-edit' onclick= "edit_function('design_expertise')">
+                                </i></h4></br>
+                                <br>Design Area : <input id="design_area" class="u-full-width" type="text" name="design_area" value="{{ details.design_area }}" readonly>
+                                    <i class='fas fa-edit' onclick= "edit_function('design_area')">
+                                </i></h4></br>
+                                <br>Name of display project : <input id="name_of_project" class="u-full-width" type="text" name="name_of_project" value="{{ details.name_of_project }}" readonly>
+                                    <i class='fas fa-edit' onclick= "edit_function('name_of_project')">
+                                </i></h4></br>
+                                <br>Website : <input id="website" class="u-full-width" type="text" name="website" value="{{ details.website }}" readonly>
+                                    <i class='fas fa-edit' onclick= "edit_function('website')">
+                                </i></h4></br>
+                                <br>Facebook : <input id="facebook" class="u-full-width" type="text" name="facebook" value="{{ details.facebook }}" readonly>
+                                    <i class='fas fa-edit' onclick= "edit_function('facebook')">
+                                </i></h4></br>
+                                <br>Instagram : <input id="instagram" class="u-full-width" type="text" name="instagram" value="{{ details.instagram }}" readonly>
+                                    <i class='fas fa-edit' onclick= "edit_function('instagram')">
+                                </i></h4></br>
+                                
+
+
+                                <br>Description of {{details.name}} : {{ details.description }}<input id="description" class="u-full-width" type="text" name="description" value="{{ details.description }}" readonly>
+                                    <i class='fas fa-edit' onclick= "edit_function('description')">
+                                </i></h4></br>
+                           
+
+                                </hr></br>
+
+                                <button type="submit">Submit</button>
+
+                                <script type="text/javascript">
+                                       function edit_function(id_parameter){
+                                        // document.getElementById("company_name_id").innerHTML = "hello world";
+
+                                        document.getElementById(id_parameter).readOnly = false;
+                                        // document.getElementById(id_parameter).value = '';
+                                        // window.location.href = "http://www.w3schools.com";
+
+                                       }
+
+                                       function submit_function(){
+                                        // document.getElementById("company_name_id").innerHTML = "hello world";
+
+                                        // document.getElementById(id_parameter).readOnly = false;
+                                        // document.getElementById(id_parameter).value = '';
+                                        window.location.href = "{% url 'edit_interior' %}";
+                                        // window.location.href = "http://www.w3schools.com";
+                                       }
+                                    </script>
+                                
+                                <hr>
+                                <h5 align="right">
+                                <a href="{% url 'logout' %}">Logout</a>||
+                                <!-- <a href="{% url 'edit' %}">Edit Profile</a>|| -->
+                                <a href="{% url 'img' %}">Add Image</a>
+
+                                
+                                </hr>
+                                </h5>
+							</div>
+						</div>
+					</div>
+       				<hr><br>
+
+                        <h5>Images of {{ details.name }}'s work</h5>
+                        {% for collection in images %}
+                            <img src="{{ collection.image.url }}" width="200" height="200" >
+                        {% endfor %}
+                        
+
+                        </hr></br>
+                        
+        		</div>
+        	</div>
+        </section>
+        <!--================End Portfolio Details Area =================-->
+        
+       
+        
+        
+        
+        
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="{% static 'Interior_app/js/jquery-3.2.1.min.js' %}"></script>
+        <script src="{% static 'Interior_app/js/bootstrap.min.js' %}"></script>
+        <script src="{% static 'Interior_app/js/stellar.js' %}"></script>
+        <script src="{% static 'Interior_app/css/vendors/lightbox/simpleLightbox.min.js' %}"></script>
+        <script src="{% static 'Interior_app/css/vendors/nice-select/js/jquery.nice-select.min.js' %}"></script>
+        <script src="{% static 'Interior_app/css/vendors/isotope/imagesloaded.pkgd.min.js' %}"></script>
+        <script src="{% static 'Interior_app/css/vendors/isotope/isotope-min.js' %}"></script>
+        <script src="{% static 'Interior_app/css/vendors/owl-carousel/owl.carousel.min.js' %}"></script>
+        <script src="{% static 'Interior_app/js/jquery.ajaxchimp.min.js' %}"></script>
+        <script src="{% static 'Interior_app/js/mail-script.js' %}"></script>
+        <script src="{% static 'Interior_app/css/vendors/counter-up/jquery.waypoints.min.js' %}"></script>
+        <script src="{% static 'Interior_app/css/vendors/counter-up/jquery.counterup.min.js' %}"></script>
+        <script src="{% static 'Interior_app/js/theme.js' %}"></script>
+        {% endblock %}
+    </body>
+</html>

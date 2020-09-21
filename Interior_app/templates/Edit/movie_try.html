@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+
+{% block title %} Edit Profile {% endblock %}
+
+{% block body %}
+<h3> Enter the movie you like</h3>
+	
+	<form method="POST" action="{% url 'movie' %}" class="" />
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Search</button>
+</form>
+    
+		
+ 
+{% endblock %}

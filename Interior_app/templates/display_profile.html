@@ -8,7 +8,7 @@
 <div class="container">
 	<img src="{{ details.profile_picture.url }}" width="200">
 
-	<br>Name : {{ details.Name }}</br>
+	<strong><br>Name : {{ details.Name }}</br></strong>
 	<br>Contact Number : {{ details.contact_no }}</br>
 	<br>Years of Experience : {{ details.Years_of_experience }}</br>
 	<br>Total Number of Completed Projects : {{ details.Number_of_finished_projects }}</br>
@@ -19,8 +19,9 @@
 
 	<hr><br>
 
-
+	<h5>Images of {{ details.Name }}'s work</h5>
 	{% for collection in images %}
+
 		<img src="{{ collection.image.url }}" width="150" height="150" >
 	{% endfor %}
 	

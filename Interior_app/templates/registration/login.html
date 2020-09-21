@@ -1,7 +1,8 @@
-{% extends 'base.html' %}
+{% extends 'woodrox/base_woodrox.html'%}
+<!--
 
 
-{% block body %}
+
 <h1>Hey There, Welcome Back! :)</h1>
 
 
@@ -11,5 +12,360 @@
 	<button type="submit">Login</button>
 </form>
 
+ -->
 
-{% endblock %}
+<!doctype html>
+{% load static %}
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <!-- <link rel="icon" href="{% static 'Interior_app/img/favicon.png' %}" type="image/png"> -->
+        <title>Woodrox Furniture</title>
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="{% static 'Interior_app/css/bootstrap.css' %}">
+        <link rel="stylesheet" href="{% static 'Interior_app/css/vendors/linericon/style.css' %}">
+        <link rel="stylesheet" href="{% static 'Interior_app/css/font-awesome.min.css' %}">
+        <link rel="stylesheet" href="{% static 'Interior_app/css/vendors/owl-carousel/owl.carousel.min.css' %}">
+        <link rel="stylesheet" href="{% static 'Interior_app/css/vendors/lightbox/simpleLightbox.css' %}">
+        <link rel="stylesheet" href="{% static 'Interior_app/css/vendors/nice-select/css/nice-select.css' %}">
+        <link rel="stylesheet" href="{% static 'Interior_app/css/vendors/animate-css/animate.css' %}">
+        <link rel="stylesheet" href="{% static 'Interior_app/css/vendors/flaticon/flaticon.css' %}">
+        <!-- main css -->
+         <link rel="stylesheet" href="{% static 'Interior_app/css/style.css' %}">
+          <link rel="stylesheet" href="{% static 'Interior_app/css/responsive.css' %}">
+          
+
+
+       
+   <link rel="stylesheet" href="{% static 'Interior_app/css/expert_register.css' %}">
+          
+
+      
+ 
+    </head>
+    <body>
+        {% block body %}
+        
+        <!--================Header Menu Area =================-->
+        
+        <!--================Header Menu Area =================-->
+        
+        <!--================Home Banner Area =================-->
+        <section class="home_banner_area">
+            <div class="banner_inner">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-8">
+							<div class="banner_content">
+								<h2>This is the PROFESSIONAL LOGIN Page</h2>
+								
+								<a class="banner_btn" href="#">Get Started</a>
+							</div>
+						</div>
+						<div class="col-lg-4">
+							<div class="home_right_box">
+								<div class="home_item">
+									<i class="flaticon-sofa"></i>
+								</div>
+								<div class="home_item">
+									<i class="flaticon-bed"></i>
+								</div>
+								<div class="home_item">
+									<i class="flaticon-computer"></i>
+								</div>
+								<div class="home_item">
+									<i class="flaticon-mirror"></i>
+								</div>
+								<div class="home_item">
+									<i class="flaticon-closet"></i>
+								</div>
+								<div class="home_item">
+									<i class="flaticon-kitchen"></i>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+            </div>
+        </section>
+        <!--================End Home Banner Area =================-->
+
+         <style type="text/css">
+          #regForm {
+  background-color: #ffffff;
+  margin: 100px auto;
+  font-family: Raleway;
+  padding: 40px;
+  width: 70%;
+  min-width: 300px;
+}
+
+h1 {
+  text-align: center;  
+}
+
+input  {
+  padding: 10px;
+  width: 100%;
+  font-size: 17px;
+  font-family: Raleway;
+  border: 1px solid #aaaaaa;
+}
+
+/* Mark input boxes that gets an error on validation: */
+input.invalid {
+  background-color: #ffdddd;
+}
+
+/* Hide all steps by default: */
+.tab {
+  display: none;
+}
+
+button {
+  background-color: #4CAF50;
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 17px;
+  font-family: Raleway;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+#prevBtn {
+  background-color: #bbbbbb;
+}
+
+/* Make circles that indicate the steps of the form: */
+.step {
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbbbbb;
+  border: none;  
+  border-radius: 50%;
+  display: inline-block;
+  opacity: 0.5;
+}
+
+.step.active {
+  opacity: 1;
+}
+
+/* Mark the steps that are finished and valid: */
+.step.finish {
+  background-color: #4CAF50;
+}
+        </style>
+
+
+
+      <form id="regForm" method="post" enctype="multipart/form-data" action="{% url 'login' %}">
+        {% csrf_token %}
+
+        <h1>Login Info</h1>
+        <div class="tab">
+          
+          
+          <h3>Username:</h3>
+           <p>{{ form.username }}</p>
+
+           <h3>Password:</h3>
+           <p>{{ form.password }}</p>
+           
+        </div>
+        
+      <button type="submit">Login</button>
+        <!-- <div style="overflow:auto;">
+          <div style="float:right;">
+            
+          </div>
+        </div>
+         -->
+         <p style="text-align: center;">Have you not signed up with us before? Signup <a href="{% url 'signup' %}">here</a></p>
+       
+      </form>
+      <!-- <p>Have you not signed up with us before? <a href="{% url 'signup' %}">Signup here</a></p> -->
+
+<script>
+var currentTab = 0; // Current tab is set to be the first tab (0)
+showTab(currentTab); // Display the current tab
+
+function showTab(n) {
+  // This function will display the specified tab of the form...
+  var x = document.getElementsByClassName("tab");
+  x[n].style.display = "block";
+  //... and fix the Previous/Next buttons:
+  if (n == 0) {
+    document.getElementById("prevBtn").style.display = "none";
+  } else {
+    document.getElementById("prevBtn").style.display = "inline";
+  }
+  if (n == (x.length - 1)) {
+    document.getElementById("nextBtn").innerHTML = "Submit";
+  } else {
+    document.getElementById("nextBtn").innerHTML = "Next";
+  }
+  //... and run a function that will display the correct step indicator:
+  fixStepIndicator(n)
+}
+
+function nextPrev(n) {
+  // This function will figure out which tab to display
+  var x = document.getElementsByClassName("tab");
+  // Exit the function if any field in the current tab is invalid:
+  if (n == 1 && !validateForm()) return false;
+  // Hide the current tab:
+  x[currentTab].style.display = "none";
+  // Increase or decrease the current tab by 1:
+  currentTab = currentTab + n;
+  // if you have reached the end of the form...
+  if (currentTab >= x.length) {
+    // ... the form gets submitted:
+    document.getElementById("regForm").submit();
+    return false;
+  }
+  // Otherwise, display the correct tab:
+  showTab(currentTab);
+}
+
+function validateForm() {
+ 
+  // This function deals with validation of the form fields
+  var x, y, i, valid = true;
+  x = document.getElementsByClassName("tab");
+  y = x[currentTab].getElementsByTagName("input");
+  // A loop that checks every input field in the current tab:
+  for (i = 0; i < y.length; i++) {
+    // If a field is empty...
+    if (y[i].value == "") {
+      // add an "invalid" class to the field:
+      y[i].className += " invalid";
+      // and set the current valid status to false
+      valid = false;
+    }
+  }
+
+  // If the valid status is true, mark the step as finished and valid:
+  if (valid && validateCheckbox) {
+    document.getElementsByClassName("step")[currentTab].className += " finish";
+  }
+  return valid; // return the valid status
+}
+
+function fixStepIndicator(n) {
+  // This function removes the "active" class of all steps...
+  var i, x = document.getElementsByClassName("step");
+  for (i = 0; i < x.length; i++) {
+    x[i].className = x[i].className.replace(" active", "");
+  }
+  //... and adds the "active" class on the current step:
+  x[n].className += " active";
+}
+
+function ValidateEmail(mail) 
+{
+ if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(myForm.emailAddr.value))
+  {
+    return (true)
+  }
+    alert("You have entered an invalid email address!")
+    return (false)
+}
+
+function validateCheckbox() {
+    const form = document.querySelector('#sectionForm');
+    const checkboxes = form.querySelectorAll('input[type=checkbox]');
+    const checkboxLength = checkboxes.length;
+    const firstCheckbox = checkboxLength > 0 ? checkboxes[0] : null;
+
+    function init() {
+        if (firstCheckbox) {
+            for (let i = 0; i < checkboxLength; i++) {
+                checkboxes[i].addEventListener('change', checkValidity);
+            }
+
+            checkValidity();
+        }
+    }
+
+    function isChecked() {
+        for (let i = 0; i < checkboxLength; i++) {
+            if (checkboxes[i].checked) return true;
+        }
+
+        return false;
+    }
+
+    function checkValidity() {
+        const errorMessage = !isChecked() ? 'At least one checkbox must be selected.' : '';
+        firstCheckbox.setCustomValidity(errorMessage);
+    }
+
+    init();
+    }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="{% static 'Interior_app/js/jquery-3.2.1.min.js' %}"></script>
+        <script src="{% static 'Interior_app/js/popper.js' %}"></script>
+        <script src="{% static 'Interior_app/js/bootstrap.min.js' %}"></script>
+        <script src="{% static 'Interior_app/js/stellar.js' %}"></script>
+        <script src="{% static 'Interior_app/css/vendors/lightbox/simpleLightbox.min.js' %}"></script>
+        <script src="{% static 'Interior_app/css/vendors/nice-select/js/jquery.nice-select.min.js' %}"></script>
+        <script src="{% static 'Interior_app/css/vendors/isotope/imagesloaded.pkgd.min.js' %}"></script>
+        <script src="{% static 'Interior_app/css/vendors/isotope/isotope-min.js' %}"></script>
+        <script src="{% static 'Interior_app/css/vendors/owl-carousel/owl.carousel.min.js' %}"></script>
+        <script src="{% static 'Interior_app/js/jquery.ajaxchimp.min.js' %}"></script>
+        <script src="{% static 'Interior_app/css/vendors/counter-up/jquery.waypoints.min.js' %}"></script>
+        <script src="{% static 'Interior_app/css/vendors/counter-up/jquery.counterup.min.js' %}"></script>
+        <script src="{% static 'Interior_app/js/mail-script.js' %}"></script>
+        <!--gmaps Js-->
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
+        <script src="{% static 'Interior_app/js/gmaps.min.js' %}"></script>
+        <script src="{% static 'Interior_app/js/theme.js' %}"></script>
+
+        {% endblock %}
+    </body>
+</html>

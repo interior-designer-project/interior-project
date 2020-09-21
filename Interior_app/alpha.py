@@ -1,0 +1,1 @@
+string1 = "Hi chandler bing"

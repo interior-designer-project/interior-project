@@ -1,0 +1,378 @@
+{% extends 'woodrox/base_woodrox.html'%}
+<!doctype html>
+{% load static %}
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <!-- <link rel="icon" href="{% static 'Interior_app/img/favicon.png' %}" type="image/png"> -->
+        <title>Woodrox Furniture</title>
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="{% static 'Interior_app/css/bootstrap.css' %}">
+        <link rel="stylesheet" href="{% static 'Interior_app/css/vendors/linericon/style.css' %}">
+        <link rel="stylesheet" href="{% static 'Interior_app/css/font-awesome.min.css' %}">
+        <link rel="stylesheet" href="{% static 'Interior_app/css/vendors/owl-carousel/owl.carousel.min.css' %}">
+        <link rel="stylesheet" href="{% static 'Interior_app/css/vendors/lightbox/simpleLightbox.css' %}">
+        <link rel="stylesheet" href="{% static 'Interior_app/css/vendors/nice-select/css/nice-select.css' %}">
+        <link rel="stylesheet" href="{% static 'Interior_app/css/vendors/animate-css/animate.css' %}">
+        <link rel="stylesheet" href="{% static 'Interior_app/css/vendors/flaticon/flaticon.css' %}">
+        <!-- main css -->
+        <link rel="stylesheet" href="{% static 'Interior_app/css/style.css' %}">
+        <link rel="stylesheet" href="{% static 'Interior_app/css/responsive.css' %}">
+    </head>
+    <body>
+        {% block body %}
+        
+        <!--================Header Menu Area =================-->
+        
+        <!--================Header Menu Area =================-->
+        
+        <!--================Home Banner Area =================-->
+        <section class="mysection">
+
+        <div class="w3-content w3-section" style="max-width:100%">
+            
+
+            <img class="mySlides w3-animate-fading" src="{% static 'Interior_app/img/banner/home-banner.jpg' %}" style="width:100%; height:700px; ">
+
+            <img class="mySlides w3-animate-fading" src="{% static 'Interior_app/img/banner/replace.jpg' %}" style="width:100% ; height:700px; opacity: 0.9;">
+              
+            <img class="mySlides w3-animate-fading" src="{% static 'Interior_app/img/banner/kitchen_trying.jpg' %}" style="width:100% ; height:700px; opacity: 0.9;">
+             
+            <img class="mySlides w3-animate-fading" src="{% static 'Interior_app/img/banner/black_tub.jpg' %}" style="width:100% ; height:700px;">
+
+              
+                <div class="centered" style="text-align: center; position: absolute; top: 200px; left: 50px; color: #edb879;">
+                    
+                    <h2>Welcome to our Website</h2>
+                    <a class="banner_btn" href="{% url 'about_us_page' %}">Get Started</a>
+                  
+                </div>
+
+                <div class="myIndexbox" style="background: rgba(255, 255, 255, 0.1); position: absolute; right:150px; top: 250px; display: flex;  flex-wrap: wrap; border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 10px; padding: 30px;">
+                    
+                   <a href="{% url 'Overall_Price_Low_to_High' %}"><img src="{% static 'Interior_app/img/favicon/cost_low_To_high.jpg' %}" style="height: 50px; width: 50px;"></a>
+                   
+                    <button type="button"><a href="{% url 'Experience_filter' %}"><font color="black">Experience</font></button>
+                    <!-- <button type="button"><a href="{% url 'Project_filter' %}"><font color="black">Projects Completed</font></button> -->
+                    <button type="button"><a href="{% url 'Overall_Price_High_to_Low' %}"><font color="black">Overall price High to Low</font></button>
+
+                
+
+                </div>
+
+
+            </div> 
+            </div>
+              
+          
+        </div>
+        <script>
+        var myIndex = 0;
+        carousel();
+
+        function carousel() {
+          var i;
+          var x = document.getElementsByClassName("mySlides");
+          for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";  
+          }
+          myIndex++;
+          if (myIndex > x.length) {myIndex = 1}    
+          x[myIndex-1].style.display = "block";  
+          setTimeout(carousel, 3000);    
+        }
+        </script>
+            
+            
+        </section>
+        <!--================End Home Banner Area =================-->
+        
+        <!--================Furniture Area =================-->
+        <section class="furniture_area p_120">
+        	<div class="container">
+        		<div class="main_title">
+        			<h2>Find the Best fit for you!!</h2>
+        			<p>Here is a list of our best interior designers to choose from!!</p>
+        		</div>
+        		<div class="furniture_inner row">  
+                    <!-- TO MAKE IT IN A ROW FORMAT, TAKE LINE NO. 130 AND PLACE IT BELOW FOR LOOP IN JINJA -->
+        			
+                            {% for i in disp %}
+                         <div class="col-lg-4">
+                        <div class="furniture_item">
+                        <hr>
+                        <br>
+                        <a href="{{ i.id }}" style="color: grey;">
+                         <br style="text-align: center;"><h5>{{ i.name }}</h5></br>
+                        <img src="{{ i.images }}" width="300" align="left" height="300">
+                        <br>
+                            <h5>
+                                 
+                             <br>Company Name: {{ i.company_name }}</br>
+                                <br>Years of Experience : {{ i.years_exp }}</br>
+                                <!-- <br>Number of Finished Projects : {{ i.Number_of_finished_projects }}</br> -->
+                                <br>Minimum Budget : {{ i.lower_budget }}</br>
+                                 <br>Maximum Budget : {{ i.higher_budget }}</br>
+                            </h5>
+                            </a>
+                        </div>
+                        </div>
+                        
+                        
+                        {% endfor %}
+                        </br>
+                        
+        			</div>
+                    <br>
+                    <br>
+                    <br>
+                    
+
+
+                            {% if is_paginated %}
+                      <nav class="blog-pagination justify-content-center d-flex">
+                                <ul class="pagination">
+                                    <li class="page-item">
+                                        <!-- <a href="#" class="page-link" aria-label="Previous"> -->
+                                             {% if current_page.has_previous %}
+                                            <a href="?page={{ current_page.previous_page_number }}" aria-label="Previous" style="color: grey;">
+                                     
+                                            <span aria-hidden="true">
+                                                <span class="lnr lnr-chevron-left">    
+                                                </span>
+                                            </span></a>
+                                               {% endif %}
+                                   
+                                        {% for i in n %}
+                                        <li class="page-item"> <a href="?page={{ i }}" class="page-link" style="color: grey;">  {{ i }}</a></li>
+                                        {% endfor %}
+                                      
+                                    <li class="page-item">
+                                        <!-- <a href="#" class="page-link" aria-label="Next"> -->
+                                             {% if current_page.has_next %}
+                                            <a href="?page={{ current_page.next_page_number }}" aria-label="Next" style="color: grey;">
+                                        
+                                            <span aria-hidden="true">
+                                                <span class="lnr lnr-chevron-right"></span>
+                                            </span>
+                                            </a>
+                                            {% endif %}
+                                        
+                                    </li>
+                                </ul>
+                            </nav>
+                        {% endif %}
+                            </div>
+
+
+
+        		</div>
+        	</div>
+        </section>
+        <!--================End Furniture Area =================
+        
+        ================Projects Area =================-->
+        <center><p>AD Banner</p></center>
+        <section class="projects_area">
+        	<div class="row m0">
+        		<div class="projects_item wd_18">
+					<img src="{% static 'Interior_app/img/projects/projects-1.jpg' %}" alt="">
+					<div class="hover">
+						<h4>Alex Complex for esidence</h4>
+						<p>LCD screens are uniquely modern in style, and the liquid crystals that make them work have allowed humanity to create  slimmer.</p>
+					</div>
+				</div>
+				<div class="projects_item wd_18">
+					<img src="{% static 'Interior_app/img/projects/projects-2.jpg' %}" alt="">
+					<div class="hover">
+						<h4>Alex Complex for esidence</h4>
+						<p>LCD screens are uniquely modern in style, and the liquid crystals that make them work have allowed humanity to create  slimmer.</p>
+					</div>
+				</div>
+				<div class="projects_item wd_44">
+					<img src="{% static 'Interior_app/img/projects/projects-3.jpg' %}" alt="">
+					<div class="hover">
+						<h4>Alex Complex for esidence</h4>
+						<p>LCD screens are uniquely modern in style, and the liquid crystals that make them work have allowed humanity to create  slimmer.</p>
+					</div>
+				</div>
+				<div class="projects_item wd_18">
+					<img src="{% static 'Interior_app/img/projects/projects-4.jpg' %}" alt="">
+					<div class="hover">
+						<h4>Alex Complex for esidence</h4>
+						<p>LCD screens are uniquely modern in style, and the liquid crystals that make them work have allowed humanity to create  slimmer.</p>
+					</div>
+				</div>
+        	</div>
+        </section>
+        <!--================End Projects Area =================-->
+        
+        
+        
+        <!--================Impress Area =================-->
+        <section class="impress_area p_120">
+        	<div class="container">
+        		<!-- <div class="impress_inner text-center">
+					<h2>Looking for a <br />quality and affordable Furniture?</h2>
+					<p>inappropriate behavior is often laughed off as “boys will be boys,” women face higher conduct standards especially in the workplace.</p>
+					<a class="main_btn" href="#">Read Details</a>
+        		</div> -->
+                <link rel="stylesheet" type="text/css" href="{% static 'Interior_app/css/testimonial.css' %}">
+                <section class="testimonial text-center">
+        <div class="container">
+
+            <div class="heading white-heading">
+                Testimonial
+            </div>
+            <div id="testimonial4" class="carousel slide testimonial4_indicators testimonial4_control_button thumb_scroll_x swipe_x" data-ride="carousel" data-pause="hover" data-interval="3500" data-duration="500">
+             
+                <div class="carousel-inner" role="listbox">
+                    <div class="carousel-item active">
+                        <div class="testimonial4_slide">
+                            <img src="{% static 'Interior_app/img/testimonial/client3.jpeg' %}" class="img-circle img-responsive" />
+                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
+                            <h4>Client 1</h4>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="testimonial4_slide">
+                            <img src="{% static 'Interior_app/img/testimonial/client2.jpeg' %}" class="img-circle img-responsive" /><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
+                            <h4>Client 2</h4>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="testimonial4_slide">
+                            <img src="https://i.ibb.co/8x9xK4H/team.jpg" class="img-circle img-responsive" />
+                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
+                            <h4>Client 3</h4>
+                        </div>
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#testimonial4" data-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
+                </a>
+                <a class="carousel-control-next" href="#testimonial4" data-slide="next">
+                    <span class="carousel-control-next-icon"></span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+
+        	</div>
+        </section>
+        <!--================End Impress Area =================-->
+        
+        <!--================Our Blog Area =================-->
+        <!-- <section class="our_blog_area p_120">
+        	<div class="container">
+        		<div class="main_title">
+        			<h2>Recent Posts from our blog</h2>
+        			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
+        		</div>
+        		<div class="blog_inner row">
+        			<div class="col-lg-4">
+        				<div class="o_blog_item">
+        					<div class="blog_img">
+        						<img class="img-fluid" src="{% static 'Interior_app/img/our-blog/our-blog-1.jpg' %}" alt="">
+        					</div>
+        					<div class="blog_text">
+        						<div class="blog_cat">
+        							<a class="active" href="#">Travel</a>
+        							<a href="#">Life style</a>
+        						</div>
+        						<a href="#"><h4>Low Cost Advertising</h4></a>
+        						<p>Acres of Diamonds… you’ve read the famous story, or at least had it related to you A farmer.</p>
+        						<a class="date" href="#">31st January, 2018</a>
+        					</div>
+        				</div>
+        			</div>
+        			<div class="col-lg-4">
+        				<div class="o_blog_item">
+        					<div class="blog_img">
+        						<img class="img-fluid" src="{% static 'Interior_app/img/our-blog/our-blog-2.jpg' %}" alt="">
+        					</div>
+        					<div class="blog_text">
+        						<div class="blog_cat">
+        							<a class="active" href="#">Travel</a>
+        							<a href="#">Life style</a>
+        						</div>
+        						<a href="#"><h4>Low Cost Advertising</h4></a>
+        						<p>Acres of Diamonds… you’ve read the famous story, or at least had it related to you A farmer.</p>
+        						<a class="date" href="#">31st January, 2018</a>
+        					</div>
+        				</div>
+        			</div>
+        			<div class="col-lg-4">
+        				<div class="o_blog_item">
+        					<div class="blog_img">
+        						<img class="img-fluid" src="{% static 'Interior_app/img/our-blog/our-blog-3.jpg' %}" alt="">
+        					</div>
+        					<div class="blog_text">
+        						<div class="blog_cat">
+        							<a class="active" href="#">Travel</a>
+        							<a href="#">Life style</a>
+        						</div>
+        						<a href="#"><h4>Low Cost Advertising</h4></a>
+        						<p>Acres of Diamonds… you’ve read the famous story, or at least had it related to you A farmer.</p>
+        						<a class="date" href="#">31st January, 2018</a>
+        					</div>
+        				</div>
+        			</div>
+        		</div>
+        	</div>
+        </section> -->
+        <!--================End Our Blog Area =================-->
+        
+        <!--================Clients Logo Area =================-->
+        <!-- <section class="clients_logo_area p_120">
+        	<div class="container">
+        		<div class="clients_slider owl-carousel">
+        			<div class="item">
+        				<img src="{% static 'Interior_app/img/clients-logo/c-logo-1.png' %}" alt="">
+        			</div>
+        			<div class="item">
+        				<img src="{% static 'Interior_app/img/clients-logo/c-logo-2.png' %}" alt="">
+        			</div>
+        			<div class="item">
+        				<img src="{% static 'Interior_app/img/clients-logo/c-logo-3.png' %}" alt="">
+        			</div>
+        			<div class="item">
+        				<img src="{% static 'Interior_app/img/clients-logo/c-logo-4.png' %}" alt="">
+        			</div>
+        			<div class="item">
+        				<img src="img/clients-logo/c-logo-5.png" alt="">
+        			</div>
+        		</div>
+        	</div>
+        </section> -->
+        <!--================End Clients Logo Area =================-->
+        
+        
+        
+        
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="{% static 'Interior_app/js/jquery-3.2.1.min.js' %}"></script>
+        <script src="{% static 'Interior_app/js/popper.js' %}"></script>
+        <script src="{% static 'Interior_app/js/bootstrap.min.js' %}"></script>
+        <script src="{% static 'Interior_app/js/stellar.js' %}"></script>
+        <script src="{% static 'Interior_app/css/vendors/lightbox/simpleLightbox.min.js' %}"></script>
+        <script src="{% static 'Interior_app/css/vendors/nice-select/js/jquery.nice-select.min.js' %}"></script>
+        <script src="{% static 'Interior_app/css/vendors/isotope/imagesloaded.pkgd.min.js' %}"></script>
+        <script src="{% static 'Interior_app/css/vendors/isotope/isotope-min.js' %}"></script>
+        <script src="{% static 'Interior_app/css/vendors/owl-carousel/owl.carousel.min.js' %}"></script>
+        <script src="{% static 'Interior_app/js/jquery.ajaxchimp.min.js' %}"></script>
+        <script src="{% static 'Interior_app/css/vendors/counter-up/jquery.waypoints.min.js' %}"></script>
+        <script src="{% static 'Interior_app/css/vendors/counter-up/jquery.counterup.min.js' %}"></script>
+        <script src="{% static 'Interior_app/js/mail-script.js' %}"></script>
+        <!--gmaps Js-->
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
+        <script src="{% static 'Interior_app/js/gmaps.min.js' %}"></script>
+        <script src="{% static 'Interior_app/js/theme.js' %}"></script>
+
+        {% endblock %}
+    </body>
+</html>

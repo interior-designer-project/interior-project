@@ -7,7 +7,7 @@
 {% block body %}
 	<div class="container">
 	<img src="{{ details.profile_picture.url }}" width="150"> {{details.user.username}}
-	<hr><br>Name : {{ details.Name }}</br></hr>
+	<hr><strong><br>Name : {{ details.Name }}</br></strong></hr>
 	<hr><br>Contact Number : {{ details.contact_no }}</br></hr>
 	<hr><br>Years of Experience : {{ details.Years_of_experience }} years</br></hr>
 	<hr><br>Total Number of Completed Projects : {{ details.Number_of_finished_projects }}</br></hr>
@@ -16,9 +16,11 @@
 	<hr><br>Approximate Overall Cost Quote : {{ details.Overall_cost }}</br></hr>
 	<hr><br>
 
-
+	<h5>Images of {{ details.Name }}'s work</h5>
 	{% for collection in images %}
+
 		<img src="media/{{ collection.image }}" width="150" height="150" >
+	
 	{% endfor %}
 	
 

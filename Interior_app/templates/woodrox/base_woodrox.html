@@ -1,0 +1,207 @@
+<!doctype html>
+{% load static %}
+
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="icon" href="{% static 'Interior_app/img/favicon.png' %}" type="image/png">
+        <link rel="shortcut icon" href="{% static 'Interior_app/img/favicon.ico' %}" type="image/x-icon">
+        <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+        <title>Woodrox Furniture</title>
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="{% static 'Interior_app/css/bootstrap.css' %}">
+        <link rel="stylesheet" href="{% static 'Interior_app/css/vendors/linericon/style.css' %}">
+        <link rel="stylesheet" href="{% static 'Interior_app/css/font-awesome.min.css' %}">
+        <link rel="stylesheet" href="{% static 'Interior_app/css/vendors/owl-carousel/owl.carousel.min.css' %}">
+        <link rel="stylesheet" href="{% static 'Interior_app/css/vendors/lightbox/simpleLightbox.css' %}">
+        <link rel="stylesheet" href="{% static 'Interior_app/css/vendors/nice-select/css/nice-select.css' %}">
+        <link rel="stylesheet" href="{% static 'Interior_app/css/vendors/animate-css/animate.css' %}">
+        <!-- main css -->
+        <link rel="stylesheet" href="{% static 'Interior_app/css/style.css' %}">
+        <link rel="stylesheet" href="{% static 'Interior_app/css/responsive.css' %}">
+    </head>
+
+<body>
+    <main>
+    {% block body %}{% endblock %}
+    </main>
+        <!--================Header Menu Area =================-->
+        <header class="header_area">
+            <div class="top_menu">
+                <div class="container">
+                    <div class="top_inner">
+                        <div class="float-left">
+                            <a href="#">Visit Us</a>
+                            <a href="#">Online Support</a>
+                        </div>
+                        <div class="float-right">
+                            <ul class="list header_socila">
+                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                                <li><a href="#"><i class="fa fa-behance"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="main_menu" id="mainNav">
+                <nav class="navbar navbar-expand-lg navbar-light">
+                    <div class="container">
+                        <!-- Brand and toggle get grouped for better mobile display -->
+                        <a class="navbar-brand logo_h" href="{% url 'list' %}"><img src="{% static 'Interior_app/img/logo.png' %}" alt=""><img src="{% static 'Interior_app/img/logo-2.png' %}" alt=""></a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <!-- Collect the nav links, forms, and other content for toggling -->
+                        <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
+                            <ul class="nav navbar-nav menu_nav ml-auto">
+                                <li class="nav-item">
+                                    <link rel="stylesheet" type="text/css" href="{% static 'Interior_app/css/search.css' %}">
+                                    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+                                  
+<!--                                         <form name="myform" method="GET" action="{% url 'search' %}" class="form_class">
+                                          <input type="search" name="search" placeholder="Search">
+                                          <i class="fa fa-search"></i>
+                                        </form> -->
+
+
+                                        <form name="myform" method="GET" action="{% url 'search' %}" class="form_class" id="form_class">
+                                          <input type="search" name="search" placeholder="Search" class="search_id">
+                                          <i class="fa fa-search"></i>
+                                        </form>
+                                                                            
+                                </li>
+                                <li class="nav-item active"><a class="nav-link" href="{% url 'list' %}">Home</a></li> 
+                                <li class="nav-item"><a class="nav-link" href="{% url 'about_us_page' %}">About Us</a></li> 
+                                <li class="nav-item"><a class="nav-link" href="{% url 'blog_page' %}">Blog</a></li> 
+                                <li class="nav-item"><a class="nav-link" href="{% url 'contact_page' %}">Contact us</a></li> 
+                                <!-- <li class="nav-item submenu dropdown">
+                                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Pages</a>
+                                    <ul class="dropdown-menu">
+                                        <li class="nav-item"><a class="nav-link" href="projects.html">Project</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="project-details.html">Project Details</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="elements.html">Elements</a></li>
+                                    </ul>
+                                </li>  -->
+                                <li class="nav-item submenu dropdown">
+                                    {% if user.is_authenticated %}
+                                    <li class="nav-item submenu dropdown">
+                                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="lnr lnr-user"></i></a>
+                                    <ul class="dropdown-menu">
+                                        <li class="nav-item"><a class="nav-link" href="{% url 'dashboard' %}">My Dashboard</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="{% url 'logout'%}">Logout</a></li>
+
+                                    </ul>
+
+                                    {% else %}
+                                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="lnr lnr-user"></i></a>
+
+                                    <ul class="dropdown-menu" >
+                                        <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Professional?</a></li>
+                                        <!-- <li class="nav-item"><a class="nav-link" href="{% url 'signup' %}">Signup Interior</a></li> -->
+                                        <li class="nav-item"><a class="nav-link" href="{% url 'customer_login' %}">Customer</a></li>
+                                         <!-- <li class="nav-item"><a class="nav-link" href="{% url 'customer_login' %}">CLOGIN</a></li> -->
+                                    </ul>
+                                    {% endif %}
+                                    </ul>
+                                </li> 
+                                <!-- <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li> -->
+                            </ul>
+                        </div> 
+                    </div>
+                </nav>
+                
+
+                <!-- THIS IS FOR THE SEARCH BAR -->
+                <!-- <div class="search_bar">
+                <form name="myform" method="GET" action="{% url 'search' %}">  
+                       
+                    <input type="text" name="search" placeholder="Search" >
+                    <button type="submit" class="save btn btn-default">Search</button>
+                        
+                    </form> 
+                </div> -->
+                
+                                       
+
+            </div>
+        </header>
+      
+
+
+      <footer class="footer_area p_120">
+            <div class="container">
+                <div class="row footer_inner">
+                    <div class="col-lg-5 col-sm-6">
+                        <aside class="f_widget ab_widget">
+                            <div class="f_title">
+                                <a href="{% url 'contact_page' %}">
+                                <h3>Contact Us</h3>
+                            </div>
+                            <p>Do you want to be even more successful? Learn to love learning and growth. The more effort you put into improving your skills,</p>
+                            <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+                        </a></aside>
+
+                    </div>
+                    <div class="col-lg-5 col-sm-6">
+                        <aside class="f_widget news_widget">
+                            <div class="f_title">
+                                <h3>Get Started</h3>
+                            </div>
+                            <p>Stay updated with our latest trends</p>
+                            <div id="mc_embed_signup">
+                                <form target="_blank" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01" method="get" class="subscribe_form relative">
+                                    <div class="input-group d-flex flex-row">
+                                        <input name="EMAIL" placeholder="Enter email address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email Address '" required="" type="email">
+                                        <button class="btn sub-btn"><span class="lnr lnr-arrow-right"></span></button>      
+                                    </div>              
+                                    <div class="mt-10 info"></div>
+                                </form>
+                            </div>
+                        </aside>
+                    </div>
+                    <div class="col-lg-2">
+                        <aside class="f_widget social_widget">
+                            <div class="f_title">
+                                <h3>Follow Me</h3>
+                            </div>
+                            <p>Let us be social</p>
+                            <ul class="list">
+                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                                <li><a href="#"><i class="fa fa-behance"></i></a></li>
+                            </ul>
+                        </aside>
+                    </div>
+                </div>
+            </div>
+        </footer>
+      
+    </body>
+
+
+
+    <script src="{% static 'Interior_app/js/jquery-3.2.1.min.js' %}"></script>
+        <script src="{% static 'Interior_app/js/popper.js' %}"></script>
+        <script src="{% static 'Interior_app/js/bootstrap.min.js' %}"></script>
+        <script src="{% static 'Interior_app/js/stellar.js' %}"></script>
+        <script src="{% static 'Interior_app/css/vendors/lightbox/simpleLightbox.min.js' %}"></script>
+        <script src="{% static 'Interior_app/css/vendors/nice-select/js/jquery.nice-select.min.js' %}"></script>
+        <script src="{% static 'Interior_app/css/vendors/isotope/imagesloaded.pkgd.min.js' %}"></script>
+        <script src="{% static 'Interior_app/css/vendors/isotope/isotope-min.js' %}"></script>
+        <script src="{% static 'Interior_app/css/vendors/owl-carousel/owl.carousel.min.js' %}"></script>
+        <script src="{% static 'Interior_app/js/jquery.ajaxchimp.min.js' %}"></script>
+        <script src="{% static 'Interior_app/js/mail-script.js' %}"></script>
+        <script src="{% static 'Interior_app/css/vendors/counter-up/jquery.waypoints.min.js' %}"></script>
+        <script src="{% static 'Interior_app/css/vendors/counter-up/jquery.counterup.min.js' %}"></script>
+        <script src="{% static 'Interior_app/js/theme.js' %}"></script>
+       
+</html>

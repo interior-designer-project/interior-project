@@ -1,0 +1,253 @@
+{% extends 'woodrox/base_woodrox.html'%}
+<!doctype html>
+{% load static %}
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <!-- <link rel="icon" href="{% static 'Interior_app/img/favicon.png' %}" type="image/png"> -->
+        <title>Woodrox Furniture</title>
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="{% static 'Interior_app/css/bootstrap.css' %}">
+        <link rel="stylesheet" href="{% static 'Interior_app/css/vendors/linericon/style.css' %}">
+        <link rel="stylesheet" href="{% static 'Interior_app/css/font-awesome.min.css' %}">
+        <link rel="stylesheet" href="{% static 'Interior_app/css/vendors/owl-carousel/owl.carousel.min.css' %}">
+        <link rel="stylesheet" href="{% static 'Interior_app/css/vendors/lightbox/simpleLightbox.css' %}">
+        <link rel="stylesheet" href="{% static 'Interior_app/css/vendors/nice-select/css/nice-select.css' %}">
+        <link rel="stylesheet" href="{% static 'Interior_app/css/vendors/animate-css/animate.css' %}">
+        <!-- main css -->
+        <link rel="stylesheet" href="{% static 'Interior_app/css/style.css' %}">
+        <link rel="stylesheet" href="{% static 'Interior_app/css/responsive.css' %}">
+    </head>
+
+            <!--================Header Menu Area =================-->
+       
+        <!--================Header Menu Area =================-->
+        <body>
+        {% block body %}
+        
+      
+  
+
+       
+        <!--================Home Banner Area =================-->
+        <section>
+            <div>
+                 <div class="w3-content" style="max-width:100%;">
+                        <img class="mySlides w3-animate-fading" src="{% static 'Interior_app/img/banner/sample_pic1.jpg' %}" style="width:100%;height: 700px;">
+                        <!-- <div class="container"> -->
+
+
+
+
+                      <img class="mySlides w3-animate-fading" src="{% static 'Interior_app/img/banner/image001.jpg' %}" style="width:100% ; height: 700px;">
+                      
+                        <!-- <div class="centered" style="text-align: center; position: absolute; top: 250px; left: 350px; color: white;">
+                        <h2>About Us</h2>
+
+                </div> -->
+                 <div class="myIndexbox" style="background: rgba(255, 255,255, 0.2); position: absolute; left:260px; top: 250px; display: flex;  flex-wrap: wrap; border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 10px; padding: 30px;">
+                    <strong>
+                    <h2>About Us</h2>
+                    </strong>
+
+                </div>
+
+                <script>
+                var myIndex = 0;
+                carousel();
+
+                function carousel() {
+                  var i;
+                  var x = document.getElementsByClassName("mySlides");
+                  for (i = 0; i < x.length; i++) {
+                    x[i].style.display = "none";  
+                  }
+                  myIndex++;
+                  if (myIndex > x.length) {myIndex = 1}    
+                  x[myIndex-1].style.display = "block";  
+                  setTimeout(carousel, 3000);    
+                }
+                </script>
+                    
+            	<!-- <div class="overlay bg-parallax" data-stellar-ratio="0.9" data-stellar-vertical-offset="0" data-background=""></div> -->
+				<!-- div>
+					<div>
+						<h2>About Us</h2>
+						<div class="page_link">
+							<a href="{% url 'list' %}">Home</a>
+							<a href="{% url 'about_us_page' %}">About Us</a>
+						</div>
+					</div>
+				</div> -->
+            </div>
+        </section>
+        <!--================End Home Banner Area =================-->
+        
+        <!--================About Area =================-->
+        <section class="about_area p_120">
+        	<div class="container">
+        		<div class="about_inner row">
+        			<div class="col-lg-6">
+        				<div class="about_left_text">
+        					<h6>Brand new app to blow your mind</h6>
+        					<h3>We’ve made a life <br />that will change you</h3>
+        					<h5>We are here to listen from you deliver exellence</h5>
+        					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod temp or incididunt ut labore et dolore magna aliqua. Ut enim ad minim.</p>
+        					<a class="main_btn" href="#">Get Started Now</a>
+        				</div>
+        			</div>
+        			<div class="col-lg-6">
+        				<img class="img-fluid" src="{% static 'Interior_app/img/about-1.jpg' %}" alt="">
+        			</div>
+        		</div>
+        	</div>
+        </section>
+        <!--================End About Area =================-->
+        
+        <!--================Projects Area =================-->
+        <section class="projects_area">
+        	<div class="row m0">
+        		<div class="projects_item wd_18">
+					<img src="{% static 'Interior_app/img/projects/projects-1.jpg' %}" alt="">
+					<div class="hover">
+						<h4>Alex Complex for esidence</h4>
+						<p>LCD screens are uniquely modern in style, and the liquid crystals that make them work have allowed humanity to create  slimmer.</p>
+					</div>
+				</div>
+				<div class="projects_item wd_18">
+					<img src="{% static 'Interior_app/img/projects/projects-2.jpg' %}" alt="">
+					<div class="hover">
+						<h4>Alex Complex for esidence</h4>
+						<p>LCD screens are uniquely modern in style, and the liquid crystals that make them work have allowed humanity to create  slimmer.</p>
+					</div>
+				</div>
+				<div class="projects_item wd_44">
+					<img src="{% static 'Interior_app/img/projects/projects-3.jpg' %}" alt="">
+					<div class="hover">
+						<h4>Alex Complex for esidence</h4>
+						<p>LCD screens are uniquely modern in style, and the liquid crystals that make them work have allowed humanity to create  slimmer.</p>
+					</div>
+				</div>
+				<div class="projects_item wd_18">
+					<img src="{% static 'Interior_app/img/projects/projects-4.jpg' %}" alt="">
+					<div class="hover">
+						<h4>Alex Complex for esidence</h4>
+						<p>LCD screens are uniquely modern in style, and the liquid crystals that make them work have allowed humanity to create  slimmer.</p>
+					</div>
+				</div>
+        	</div>
+        </section>
+        <!--================End Projects Area =================-->
+        
+        <!--================Feature Area =================-->
+        <section class="feature_area p_120">
+        	<div class="container">
+        		<div class="main_title">
+        			<h2 style="color: orange;">Find the perfect professional for your Home</h2>
+        			<p style="color: orange;">Finding the perfect interior designer for your dream home??<br>Follow the steps below and help us ease out the process for you. <br>We would love to help you realise your dream home!!</p>
+        		</div>
+        		<div class="row feature_inner">
+        			<div class="col-lg-4 col-md-6">
+        				<div class="feature_item">
+                            <a href="{% url 'list' %}" style="color: grey;">
+        					<h4><i class="lnr lnr-user"></i>Discover Professionals</h4>
+        					<p>Explore a range of professional projects and based on your parameters, choose the correct fit for you.</p>
+                            </a>
+        				</div>
+        			</div>
+        			<div class="col-lg-4 col-md-6">
+        				<div class="feature_item">
+                            <a href="{% url 'about_us_page' %}" style="color: grey;">
+        					<h4><i class="lnr lnr-license"></i>Professional Service</h4>
+        					<p>If you are an interior designer, burgeon your cliental by joining us!! <br>Let potential clients discover your talent.</p>
+                            </a>
+        				</div>
+        			</div>
+        			<div class="col-lg-4 col-md-6">
+        				<div class="feature_item">
+                            <a href="{% url 'contact_page' %}" style="color: grey;">
+        					<h4><i class="lnr lnr-phone"></i>Great Support</h4>
+        					<p>Make easy and quick connections with the best in the business. 
+                                <br>Struggling to find someone? 
+                                <br>Reach out to us!!</p>
+                            </a>
+        				</div>
+        			</div>
+        			<div class="col-lg-4 col-md-6">
+        				<div class="feature_item">
+                            <a href="{% url 'signup' %}" style="color: grey;">
+        					<h4><i class="lnr lnr-rocket"></i>Jumpstart Your Dream Project</h4>
+        					<p>Join us and help us to make your dream house become a reality!!</p>
+                            </a>
+        				</div>
+        			</div>
+        			<div class="col-lg-4 col-md-6">
+        				<div class="feature_item">
+                            <a href="{% url 'list' %}" style="color: grey;">
+        					<h4><i class="lnr lnr-diamond"></i>Highly Recomended</h4>
+        					<p>Rely on our adroit recommendation algorithms, to help you design your dream house.</p>
+                            </a>
+        				</div>
+        			</div>
+        			<div class="col-lg-4 col-md-6">
+        				<div class="feature_item">
+                            <a href="{% url 'list' %}" style="color: grey;">
+        					<h4><i class="lnr lnr-bubble"></i>Reviews</h4>
+        					<p>Check out reviews from professionals and customers!! We would love to obtain your valuable feedback.</p>
+                            </a>
+        				</div>
+        			</div>
+        		</div>
+        	</div>
+        </section>
+        <!--================End Feature Area =================-->
+        
+        <!--================Clients Logo Area =================-->
+        <section class="clients_logo_area p_120">
+        	<div class="container">
+        		<div class="clients_slider owl-carousel">
+        			<div class="item">
+        				<img src="{% static 'Interior_app/img/clients-logo/c-logo-1.png' %}" alt="">
+        			</div>
+        			<div class="item">
+        				<img src="{% static 'Interior_app/img/clients-logo/c-logo-2.png' %}" alt="">
+        			</div>
+        			<div class="item">
+        				<img src="{% static 'Interior_app/img/clients-logo/c-logo-3.png' %}" alt="">
+        			</div>
+        			<div class="item">
+        				<img src="{% static 'Interior_app/img/clients-logo/c-logo-4.png' %}" alt="">
+        			</div>
+        			<div class="item">
+        				<img src="{% static 'Interior_app/img/clients-logo/c-logo-5.png' %}" alt="">
+        			</div>
+        		</div>
+        	</div>
+        </section>
+        <!--================End Clients Logo Area =================-->
+        
+        <!--================Footer Area =================-->
+        
+        <!--================End Footer Area =================-->
+        
+        
+    <script src="{% static 'Interior_app/js/jquery-3.2.1.min.js' %}"></script>
+    <script src="{% static 'Interior_app/js/popper.js' %}"></script>
+    <script src="{% static 'Interior_app/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'Interior_app/js/stellar.js' %}"></script>
+    <script src="{% static 'Interior_app/css/vendors/lightbox/simpleLightbox.min.js' %}"></script>
+    <script src="{% static 'Interior_app/css/vendors/nice-select/js/jquery.nice-select.min.js' %}"></script>
+    <script src="{% static 'Interior_app/css/vendors/isotope/imagesloaded.pkgd.min.js' %}"></script>
+    <script src="{% static 'Interior_app/css/vendors/isotope/isotope-min.js' %}"></script>
+    <script src="{% static 'Interior_app/css/vendors/owl-carousel/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'Interior_app/js/jquery.ajaxchimp.min.js' %}"></script>
+    <script src="{% static 'Interior_app/js/mail-script.js' %}"></script>
+    <script src="{% static 'Interior_app/css/vendors/counter-up/jquery.waypoints.min.js' %}"></script>
+    <script src="{% static 'Interior_app/css/vendors/counter-up/jquery.counterup.min.js' %}"></script>
+    <script src="{% static 'Interior_app/js/theme.js' %}"></script>
+
+        {% endblock %}
+    </body>
+</html>

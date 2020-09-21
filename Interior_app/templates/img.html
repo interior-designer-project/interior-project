@@ -1,16 +1,14 @@
 {% extends 'base.html' %}
 {% block body%}
-<form id="post_form" method="post" action="" enctype="multipart/form-data">
-
-   
-
-    {{ formset.management_form }}
-    {% for form in formset %}
+<form  method="POST" enctype="multipart/form-data" action="">
         {% csrf_token %}
-        {{ form }}
-    {% endfor %}
-
-
-    <input type="submit" name="image" value="Submit" />
+        <h1>upload image</h1>
+        <label >Select files:</label>
+		<!-- <input type="file"  name="projectiamge" accept="image/*" multiple id="projectiamge" ><br><br> -->
+		<input type="file" id="projectimage" name="projectimage[]" accept="image/*" multiple ><br><br>
+	 	<!-- <input type="text" id="fname" name="fname"><br><br> -->
+  		<input type="submit" value="ok">
+  
 </form>
+
 {% endblock %}
